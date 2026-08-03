@@ -12,6 +12,10 @@ app.get('/add/:a/:b', (req, res) => {
     res.json({ result: a + b });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
+
+module.exports = app;
